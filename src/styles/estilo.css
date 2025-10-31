@@ -1,4 +1,4 @@
-
+    
 * {
     margin: 0;
     padding: 0;
@@ -101,6 +101,23 @@ header {
     opacity: 0.7;
 }
 
+
+/* Nuevo enlace */
+.login-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #b80f22;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #9e0d1b;
+}
 
 /* Navegación */
 nav {
@@ -214,4 +231,5 @@ button:hover {
     font-size: 2em;
     margin: 0;
 }
+
 
