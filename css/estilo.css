@@ -449,3 +449,144 @@ button:hover {
     transform: scale(1.1);
     opacity: 0.8;
 }
+
+/* === Sección de edición de perfil === */
+.profile-section {
+    background-color: #fff8dc;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    margin: 30px auto;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-section h2 {
+    color: #5a2a2a;
+    margin-bottom: 20px;
+}
+
+/* Imagen circular centrada */
+.image-preview-container {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 15px;
+}
+
+.profile-preview {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #5a2a2a;
+    display: block;
+}
+
+.upload-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.image-preview-container:hover .upload-overlay {
+    opacity: 1;
+}
+
+/* Botón cambiar foto */
+.upload-image-btn {
+    background-color: #5a2a2a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.upload-image-btn:hover {
+    background-color: #8b0000;
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.file-info-text {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Campos del formulario */
+.profile-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.profile-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5a2a2a;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Botones */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #5a2a2a;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #8b0000;
+    transform: scale(1.03);
+}
+
+.btn-secondary {
+    background-color: #e0d4c3;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #d4c1a6;
+    transform: scale(1.03);
+}
