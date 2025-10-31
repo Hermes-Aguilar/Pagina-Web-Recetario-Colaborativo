@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Cabaña</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+                <img src="img/logo.png" alt="Logo corazón" class="logo-small">
+            </div>
+        <div class="header-title">
+            <h1>La Cabaña</h1>
+        <img src="img/cabañna.png" alt="Logo cabañita" class="logo-cabana">
+        </div>
+        <div class="header-right">
+            <div class="social-media">
+                <a href="https://www.facebook.com/share/1AzewmxcDW/"><img src="img/face.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/la_cabana._.food?igsh=MTkzZTFlbDMxdWxkbg=="><img src="img/inst.png" alt="Instagram"></a>
+                <a href=""><img src="img/twit.png" alt="Twitter"></a>
+            </div>
+        </div>
+</header>
+
+
+<nav>
+    <ul><!--agregar enlace a las otras páginas-->
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Recetas.html">Recetas</a></li>
+        <li><a href="BlogDeConsejos.html">Blog de consejos</a></li>
+        <li><a href="TusRecetas.html">Tus recetas</a></li>
+    </ul>
+</nav>
+    <main>
+        <section class="recipe-form">
+        
+    <div class="form-group">
+        <label for="meal-type">Tipo:</label>
+        <select id="meal-type" name="meal-type">
+            <option value="desayuno">Desayuno</option>
+            <option value="almuerzo">Almuerzo</option>
+            <option value="comida">Comida</option>
+            <option value="cena">Cena</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="dish-name">Nombre del plato:</label>
+        <input type="text" id="dish-name" name="dish-name" placeholder="Ingresa el nombre">
+    </div>
+    <div class="form-group">
+        <label for="ingredients">Ingredientes:</label>
+        <input type="text" id="ingredients" name="ingredients" placeholder="Ingresa los ingredientes">
+    </div>
+    <div class="form-group">
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" placeholder="Ingresa la descripción de la receta"></textarea>
+    </div>
+    <button type="submit">Publicar</button>
+</section>
+    </main>
+</body>
+</html> 

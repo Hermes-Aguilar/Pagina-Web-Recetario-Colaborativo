@@ -1,0 +1,369 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    width: 100%;
+}
+
+/* Encabezado */
+/* Header completo */
+header {
+    width: 100%;
+    background-color: #e8ddd9;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logos a los lados */
+.header-left,
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px
+
+}
+
+/* Logo corazón */
+.logo-small {
+    height: 65px;
+}
+
+/* Título centrado */
+.header-title {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header-title h1 {
+    font-size: 3em;
+    color: #5a2a2a;
+    font-weight: bold;
+}
+
+
+/* Navegación */
+nav {
+    background-color: #f7f3d4;
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+
+
+
+
+/*Blog de consejos*/
+.blog {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+/* Fondo desenfocado */
+.fondoblog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.fondoblog img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(6px);
+    opacity: 0.6;
+}
+
+/* Tarjetas encima del fondo */
+.contenido {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+.tarjeta:hover {
+    transform: scale(1.05);
+}
+
+.tarjeta {
+    background-color: rgba(253, 235, 134, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+    width: 350px;
+    height: 400px;
+    padding: 10px;
+    text-align: justify;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 70%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.descrip img{
+    width: 20px;
+    height: 20px;
+}
+.descrip {
+    gap: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    color: #5e5e5ed7;
+}
+/*Crear Blog*/
+nav img{
+    width: 15px;
+    height: 15px;
+}
+
+.CrearCon {
+    background-color: rgba(253, 235, 134, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+    width: 800px;
+    height: 500px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #5a2a2a;
+}
+
+#tituloc {
+    background-color: #e6e4e4d7;
+    border-radius: 16px;
+    border: none;
+    width: 500px;
+    height: 50px;
+    resize: none;
+    overflow-y: auto;
+    padding: 0px 10px;
+}
+
+#contenidoc {
+    background-color: #e6e4e4d7;
+    border-radius: 16px;
+    border: none;
+    width: 600px;
+    height: 300px;
+    resize: none;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+#subirimagen {
+    background-color: #e6e4e4d7;
+    border-radius: 12px;
+    padding: 10px;
+    color: #5a2a2a;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+/*boton falso*/
+.button {
+    background-color: #5a2a2a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #8b0000;
+}
+
+
+/* MEDIA QUERIES PARA RESPONSIVE */
+
+/* Tablets y pantallas medianas (máx 768px) */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px 15px;
+        gap: 15px;
+    }
+
+    .header-left,
+    .header-right {
+        gap: 5px;
+    }
+
+    .logo-cabana {
+        height: 60px;
+    }
+
+    .logo-small {
+        height: 45px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .contenido {
+        padding: 40px 15px;
+    }
+
+    .tarjeta {
+        max-width: 300px;
+    }
+
+    .hero-text,
+    .hero-text-red {
+        padding: 15px 20px;
+    }
+}
+
+/* Móviles (máx 480px) */
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 10px;
+    }
+
+    .header-left,
+    .header-right {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .header-title {
+        order: -1;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .logo-cabana {
+        height: 50px;
+    }
+
+    .logo-small {
+        height: 35px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 8px;
+    }
+
+    .social-media {
+        gap: 10px;
+    }
+
+    .social-media img {
+        height: 25px;
+    }
+
+    .contenido {
+        padding: 30px 10px;
+        gap: 15px;
+    }
+
+    .tarjeta {
+        width: 95%;
+        max-width: 100%;
+        min-height: 350px;
+    }
+
+    .tarjeta img {
+        height: 200px;
+    }
+
+    .hero-text,
+    .hero-text-red {
+        padding: 10px 15px;
+        top: 20%;
+    }
+
+    .recipe-form {
+        width: 95%;
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px 20px;
+    }
+}
+
+/* Pantallas muy pequeñas (máx 320px) */
+@media screen and (max-width: 320px) {
+    .header-title h1 {
+        font-size: 1.3em;
+    }
+
+    .logo-cabana {
+        height: 40px;
+    }
+
+    .logo-small {
+        height: 30px;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    .tarjeta {
+        min-height: 300px;
+    }
+
+    .tarjeta img {
+        height: 150px;
+    }
+}

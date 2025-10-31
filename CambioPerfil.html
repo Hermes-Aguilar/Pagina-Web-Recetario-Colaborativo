@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar-Perfil</title>
+    <link rel="stylesheet" href="src/styles/estilo.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="src/views/logo.png" alt="Logo corazón" class="logo-small">
+        </div>
+
+        <div class="header-title">
+            <h1>Editar Perfil</h1>
+            <!--<img src="src/views/cabañna.png" alt="Logo cabañita" class="logo-cabana">-->
+        </div>
+
+        <div class="header-right">
+            <div class="social-media">
+                <a href="https://www.facebook.com/share/1AzewmxcDW/"><img src="src/views/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/la_cabana._.food?igsh=MTkzZTFlbDMxdWxkbg=="><img src="src/views/instagram.png" alt="Instagram"></a>
+                <a href=""><img src="src/views/twitter.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <!--<li><a href="#recetas">Recetas</a></li>
+            <li><a href="#blog">Blog de consejos</a></li>
+            <li><a href="#tus-recetas">Tus recetas</a></li>-->
+        </ul>
+    </nav>
+
+    <main>
+        <section class="recipe-form">
+            
+            <!-- Sección de imagen de perfil -->
+            <div class="profile-image-section">
+                <div class="image-preview-container">
+                    <img id="profilePreview" src="https://via.placeholder.com/120/5a2a2a/ffffff?text=Foto" alt="Foto de perfil" class="profile-preview">
+                    <div class="upload-overlay" onclick="document.getElementById('profileImageInput').click()"></div>
+                </div>
+                
+                <input type="file" id="profileImageInput" class="file-input-hidden" accept="image/*" onchange="previewProfileImage(event)">
+                
+                <button type="button" class="upload-image-btn" onclick="document.getElementById('profileImageInput').click()">
+                    Cambiar foto de perfil
+                </button>
+                
+                <div class="file-info-text" id="fileInfoText">Haz clic para seleccionar una imagen</div>
+            </div>
+
+            <!-- Campos del formulario -->
+            <div class="form-group">
+                <label for="dish-name">Nuevo nombre:</label>
+                <input type="text" id="dish-name" name="dish-name" placeholder="Ingresa el nuevo nombre">
+            </div>
+
+            <div class="form-group">
+                <label for="ingredients">Correo:</label>
+                <input type="password" id="ingredients" name="ingredients" placeholder="Correo ...">
+            </div>
+
+            <div class="form-group">
+                <label for="ingredients">Nueva contraseña:</label>
+                <input type="password" id="ingredients" name="ingredients" placeholder="Contraseña ...">
+            </div>
+
+            <button type="submit" onclick="guardarPerfil()">Guardar</button>
+            <button type="button" onclick="window.location.href='#inicio'">Cancelar</button>
+        </section>
+    </main>
+
+    <script>
+        function previewProfileImage(event) {
+            const file = event.target.files[0];
+            
+            if (file) {
+                // Validar que sea una imagen
+                if (!file.type.startsWith('image/')) {
+                    alert('Por favor selecciona un archivo de imagen válido');
+                    return;
+                }
+                
+                // Validar tamaño (máximo 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('La imagen es muy grande. Por favor selecciona una imagen menor a 5MB');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    document.getElementById('profilePreview').src = e.target.result;
+                    const sizeKB = (file.size / 1024).toFixed(2);
+                    document.getElementById('fileInfoText').textContent = `${file.name} (${sizeKB} KB)`;
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function guardarPerfil() {
+            const nombre = document.getElementById('dish-name').value;
+            const contraseña = document.getElementById('ingredients').value;
+            const biografia = document.getElementById('description').value;
+            const imagenSrc = document.getElementById('profilePreview').src;
+            
+            // Aquí puedes agregar la lógica para enviar los datos al servidor
+            console.log('Datos del perfil:', {
+                nombre: nombre,
+                contraseña: contraseña,
+                biografia: biografia,
+                imagen: imagenSrc
+            });
+            
+            alert('¡Perfil actualizado correctamente!');
+        }
+    </script>
+</body>
+</html>
