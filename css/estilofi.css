@@ -1,0 +1,1298 @@
+
+:root {
+    --color-fondo: #211c1e;
+    --color-fondo-header: #f5ebe6;
+    --color-item-bg: #fff8e7;
+    --color-principal: #693839;
+    --color-acento: #b8604a;
+    --color-texto-claro: #666;
+    --color-nav-bar: #fff8e7; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Junge', serif; 
+    background-color: #f5f5f5; 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--color-texto-claro);
+    min-height: 100vh;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background-image: url("../img/"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    transform: scale(1.1);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+
+.fixed-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+
+header {
+    width: 100%;
+    background-color: #e8ddd9; /* De estilo.css */
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Logos a los lados */
+.header-left,
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.logo-cabana {
+    height: 100px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Logo corazón */
+.logo-small {
+    height: 65px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Logo cabañita */
+.logo-cabana {
+    height: 75px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.header-title h1 {
+    font-size: clamp(1.5em, 5vw, 3em);
+    color: #5a2a2a;
+    font-weight: bold;
+}
+
+/* Inicio sesión como texto */
+.login-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #b80f22;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: clamp(0.9em, 2vw, 1em);
+}
+
+.login-btn:hover {
+    background-color: #9e0d1b;
+}
+
+/* Redes sociales */
+.social-media {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-media img {
+    height: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.social-media a:hover {
+    opacity: 0.7;
+}
+
+/* Navegación (combinado, conservando estilo de letra y color de styles1.css para menú) */
+nav {
+    background-color: #f7f3d4; /* De estilo.css */
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: clamp(0.9em, 2vw, 1.1em);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--color-texto-claro); /* Conservando color de styles1.css */
+    font-family: 'Georgia', serif; /* Conservando letra de styles1.css para menú */
+    font-size: clamp(15px, 2vw, 17px);
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+    white-space: nowrap;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.nav-button:hover {
+    color: var(--color-principal);
+}
+
+.nav-button.active {
+    color: var(--color-principal);
+    font-weight: bold;
+}
+
+/* Formulario de recetas (de estilo.css) */
+.recipe-form {
+    background-color: #fffacd;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5a2a2a;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #5a2a2a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #8b0000;
+}
+
+/* Sección principal con imagen (de estilo.css) */
+.hero {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Texto sobre la imagen */
+.hero-text {
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+}
+
+.hero-text-red {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+}
+
+.hero-text-red h1 {
+    color: #d32f2f;
+    font-size: clamp(1.2em, 4vw, 2em);
+    margin: 0;
+}
+
+.hero-text h1 {
+    color: #ffffff;
+    font-size: clamp(1.2em, 4vw, 2em);
+    margin: 0;
+}
+
+/* Blog (combinado de estilo.css y estiloblog.css) */
+.blog {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+/* Fondo desenfocado */
+.fondoblog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.fondoblog img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(6px);
+    opacity: 0.6;
+}
+
+/* Tarjetas encima del fondo */
+.contenido {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+.tarjeta {
+    background-color: rgba(253, 235, 134, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    min-height: 400px;
+    padding: 10px;
+    text-align: justify;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: scale(1.05);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.descrip img {
+    width: 20px;
+    height: 20px;
+}
+
+.descrip {
+    gap: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    color: #5e5e5ed7;
+}
+
+/* Crear Blog (de estiloblog.css) */
+nav img {
+    width: 15px;
+    height: 15px;
+}
+
+.CrearCon {
+    background-color: rgba(253, 235, 134, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+    width: 800px;
+    height: 500px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #5a2a2a;
+}
+
+#tituloc {
+    background-color: #e6e4e4d7;
+    border-radius: 16px;
+    border: none;
+    width: 500px;
+    height: 50px;
+    resize: none;
+    overflow-y: auto;
+    padding: 0px 10px;
+}
+
+#contenidoc {
+    background-color: #e6e4e4d7;
+    border-radius: 16px;
+    border: none;
+    width: 600px;
+    height: 300px;
+    resize: none;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+#subirimagen {
+    background-color: #e6e4e4d7;
+    border-radius: 12px;
+    padding: 10px;
+    color: #5a2a2a;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+/* Botón falso */
+.button {
+    background-color: #5a2a2a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #8b0000;
+}
+
+/* Estilo del ícono de tienda (de estilo.css) */
+.store-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.store-icon {
+    height: 35px;
+    width: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.store-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* === Sección de edición de perfil === (de estilo.css) */
+.profile-section {
+    background-color: #fff8dc;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    margin: 30px auto;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-section h2 {
+    color: #5a2a2a;
+    margin-bottom: 20px;
+}
+
+/* Imagen circular centrada */
+.image-preview-container {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 15px;
+}
+
+.profile-preview {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #5a2a2a;
+    display: block;
+}
+
+.upload-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.image-preview-container:hover .upload-overlay {
+    opacity: 1;
+}
+
+/* Botón cambiar foto */
+.upload-image-btn {
+    background-color: #5a2a2a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.upload-image-btn:hover {
+    background-color: #8b0000;
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.file-info-text {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Campos del formulario */
+.profile-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.profile-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5a2a2a;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Botones */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #5a2a2a;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #8b0000;
+    transform: scale(1.03);
+}
+
+.btn-secondary {
+    background-color: #e0d4c3;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #d4c1a6;
+    transform: scale(1.03);
+}
+
+/* Header top (de styles.css) */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: var(--color-fondo-header);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Título en el header */
+.menu-title-header {
+    text-align: center;
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: normal;
+    color: var(--color-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex: 1 1 auto;
+    min-width: 200px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo-icon-single {
+    height: clamp(35px, 5vw, 50px);
+    width: auto;
+    object-fit: contain;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+}
+
+.social-icons a:hover {
+    opacity: 0.7;
+}
+
+.social-icon {
+    width: clamp(20px, 3vw, 24px);
+    height: clamp(20px, 3vw, 24px);
+    object-fit: contain;
+}
+
+.header-menu-bar {
+    background-color: var(--color-nav-bar);
+    padding: 0 40px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+/* Navegación debajo del título */
+.nav-below-title {
+    margin: 0 -40px 40px -40px;
+}
+
+.nav-below-title .nav-container {
+    padding: 0;
+}
+
+/* CONTENIDO PRINCIPAL (de styles.css) */
+.content-container {
+    padding-top: 150px; 
+    padding-left: 40px;
+    padding-right: 40px;
+    min-height: 100vh;
+}
+
+.menu-screen {
+    min-height: calc(100vh - 150px);
+    padding-bottom: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.menu-screen.hidden {
+    display: none;
+}
+
+/* Fondo específico para Almuerzos */
+#almuerzos {
+    background-image: url('./fondo-almuerzo.png');
+}
+
+/* Fondo específico para Cenas */
+#cenas {
+    background-image: url('./fondo-cena.png');
+}
+
+/* Ya no se usa el título separado */
+.menu-title {
+    display: none;
+}
+
+.title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+.title-icon-img {
+    width: clamp(35px, 5vw, 50px);
+    height: clamp(35px, 5vw, 50px);
+    object-fit: contain;
+    display: block;
+}
+
+/* CUADRÍCULA DE ÍTEMS */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+    gap: 35px 60px; 
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: stretch;
+    background-color: var(--color-item-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.item-align-left {
+    flex-direction: row;
+}
+
+.item-align-right {
+    flex-direction: row-reverse;
+}
+
+.item-details-block {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 25px;
+}
+
+.item-image-container {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    overflow: hidden;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.item-text h2 {
+    font-size: clamp(16px, 2vw, 18px);
+    color: var(--color-acento);
+    font-weight: bold;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.item-text p {
+    font-size: clamp(13px, 1.5vw, 14px);
+    color: var(--color-texto-claro);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.rating-stars {
+    color: #ffa500;
+    font-size: clamp(14px, 2vw, 16px);
+    letter-spacing: 2px;
+}
+
+.bookmark-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    flex-shrink: 0;
+}
+
+.bookmark-icon:hover {
+    opacity: 0.6;
+}
+
+/* Login box (de stl.css) */
+html, body {
+    height: 100%;
+}
+
+.login-box {
+    width: 320px;
+    height: 420px;
+    background: rgba(209, 190, 190, 0.75); 
+    color: #000000;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.login-box .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login-box h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-box label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login-box input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-box input[type="text"], .login-box input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #000000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000000;
+    font-size: 16px;
+}
+
+.login-box input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #b80f22;
+    color: #000000;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.login-box input[type="submit"]:hover {
+    background: #9e0d1b;
+}
+
+.login-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(255, 0, 0);
+    display: block; 
+    text-align: center; 
+    margin-top: 6px;
+}
+
+.login-box a:hover {
+    color: #000000;
+}
+
+/* MEDIA QUERIES PARA RESPONSIVE (combinadas de todos) */
+
+/* Tablets y pantallas medianas (máx 768px) */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px 15px;
+        gap: 15px;
+    }
+
+    .header-left,
+    .header-right {
+        gap: 5px;
+    }
+
+    .logo-cabana {
+        height: 60px;
+    }
+
+    .logo-small {
+        height: 45px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .contenido {
+        padding: 40px 15px;
+    }
+
+    .tarjeta {
+        max-width: 300px;
+    }
+
+    .hero-text,
+    .hero-text-red {
+        padding: 15px 20px;
+    }
+
+    .header-menu-bar {
+        padding: 0 20px;
+    }
+
+    .content-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .menu-grid {
+        gap: 30px 40px;
+    }
+
+    .nav-button {
+        padding: 15px 25px;
+    }
+
+    .header-top {
+        padding: 12px 20px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo {
+        order: -1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .menu-title-header {
+        order: 1;
+        width: 100%;
+    }
+
+    .social-icons {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-menu-bar {
+        padding: 0 15px;
+    }
+
+    .content-container {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 180px;
+    }
+    
+    .menu-title {
+        font-size: 32px;
+        padding: 30px 0;
+        margin: 0 -20px 30px -20px;
+    }
+
+    .title-icon {
+        margin: 0 10px;
+    }
+
+    .nav-button {
+        padding: 12px 20px;
+    }
+
+    .menu-grid {
+        gap: 25px;
+    }
+    
+    .menu-item {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+    
+    .item-image-container {
+        max-width: 100%;
+        min-width: 100%;
+        height: 200px;
+    }
+
+    .item-details-block {
+        padding: 15px 20px;
+    }
+
+    .nav-below-title {
+        margin: 0 -20px 30px -20px;
+    }
+
+    body {
+        background-attachment: scroll;
+    }
+}
+
+/* Tablets grandes y laptops pequeñas (máx 1024px) */
+@media (max-width: 1024px) {
+    .header-menu-bar {
+        padding: 0 20px;
+    }
+
+    .content-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .menu-grid {
+        gap: 30px 40px;
+    }
+
+    .nav-button {
+        padding: 15px 25px;
+    }
+}
+
+/* Móviles (máx 480px) */
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 10px;
+    }
+
+    .header-left,
+    .header-right {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .header-title {
+        order: -1;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .logo-cabana {
+        height: 50px;
+    }
+
+    .logo-small {
+        height: 35px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 8px;
+    }
+
+    .social-media {
+        gap: 10px;
+    }
+
+    .social-media img {
+        height: 25px;
+    }
+
+    .contenido {
+        padding: 30px 10px;
+        gap: 15px;
+    }
+
+    .tarjeta {
+        width: 95%;
+        max-width: 100%;
+        min-height: 350px;
+    }
+
+    .tarjeta img {
+        height: 200px;
+    }
+
+    .hero-text,
+    .hero-text-red {
+        padding: 10px 15px;
+        top: 20%;
+    }
+
+    .recipe-form {
+        width: 95%;
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px 20px;
+    }
+
+    .header-top {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .header-menu-bar {
+        padding: 0 10px;
+    }
+
+    .content-container {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 200px;
+    }
+
+    .menu-title {
+        font-size: 28px;
+    }
+
+    .nav-button {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+
+    .nav-container {
+        gap: 5px;
+    }
+
+    .menu-grid {
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .item-image-container {
+        height: 180px;
+    }
+
+    .item-details-block {
+        padding: 12px 15px;
+    }
+
+    .item-text h2 {
+        margin-bottom: 8px;
+    }
+
+    .item-bottom {
+        margin-top: 10px;
+    }
+
+    .social-icons {
+        gap: 12px;
+    }
+
+    .menu-screen {
+        background-attachment: scroll;
+    }
+
+    .nav-below-title {
+        margin: 0 -15px 25px -15px;
+    }
+}
+
+/* Pantallas muy pequeñas (máx 320px) */
+@media screen and (max-width: 320px) {
+    .header-title h1 {
+        font-size: 1.3em;
+    }
+
+    .logo-cabana {
+        height: 40px;
+    }
+
+    .logo-small {
+        height: 30px;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    .tarjeta {
+        min-height: 300px;
+    }
+
+    .tarjeta img {
+        height: 150px;
+    }
+}
+
+/* Móviles muy pequeños (máx 360px) */
+@media (max-width: 360px) {
+    .header-top {
+        padding: 8px 10px;
+    }
+
+    .content-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .nav-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .menu-grid {
+        gap: 15px;
+    }
+
+    .item-image-container {
+        height: 150px;
+    }
+
+    .item-details-block {
+        padding: 10px 12px;
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+
+    .rating-stars {
+        letter-spacing: 1px;
+    }
+}
+
+/* Orientación horizontal en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .content-container {
+        padding-top: 140px;
+    }
+
+    .item-image-container {
+        height: 160px;
+    }
+}
+
+/* Preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .menu-item {
+        transition: none;
+    }
+
+    .menu-item:hover {
+        transform: none;
+    }
+
+    .nav-button,
+    .social-icons a,
+    .bookmark-icon {
+        transition: none;
+    }
+}
