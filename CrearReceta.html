@@ -3,62 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Cabaña</title>
+    <title>La Cabaña - Crear Receta</title>
     <link rel="stylesheet" href="css/estilofi.css">
 </head>
 <body>
+
+<!--Cabecera estandarizada-->
     <header>
         <div class="header-left">
-                <img src="img/logo.png" alt="Logo corazón" class="logo-small">
-            </div>
+            <img src="img/dis.png" alt="Logo corazón" class="logo-small">
+        </div>
+
         <div class="header-title">
             <h1>La Cabaña</h1>
-        <img src="img/cabañna.png" alt="Logo cabañita" class="logo-cabana">
+            <img src="img/cabañna.png" alt="Logo cabañita" class="logo-cabana">
         </div>
+
         <div class="header-right">
             <div class="social-media">
-                <a href="https://www.facebook.com/share/1AzewmxcDW/"><img src="img/face.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/la_cabana._.food?igsh=MTkzZTFlbDMxdWxkbg=="><img src="img/inst.png" alt="Instagram"></a>
-                <a href=""><img src="img/twit.png" alt="Twitter"></a>
+                <a href="https://www.facebook.com/share/1AzewmxcDW/"><img src="img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/la_cabana._.food?igsh=MTkzZTFlbDMxdWxkbg=="><img src="img/instagram.png" alt="Instagram"></a>
+                <a href="https://x.com/LaCabaa175607?t=_HEiujz99A590t0oTAxhuQ&s=08"><img src="img/twitter.png" alt="Twitter"></a>
             </div>
         </div>
-</header>
+    </header>
 
+<!--Barra de navegación estandarizada-->
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Recetas.html">Recetas</a></li>
+            <li><a href="Blogconsejos.html">Blog de consejos</a></li>
+            <li><a href="tusrecetas.html">Tus recetas</a></li>
+            <li><a href="login.html" class="login">Iniciar sesión</a></li>
+        </ul>
+    </nav>
 
-<nav>
-    <ul><!--agregar enlace a las otras páginas-->
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="Recetas.html">Recetas</a></li>
-        <li><a href="BlogDeConsejos.html">Blog de consejos</a></li>
-        <li><a href="TusRecetas.html">Tus recetas</a></li>
-    </ul>
-</nav>
+<!--Contenido principal-->
     <main>
-        <section class="recipe-form">
-        
-    <div class="form-group">
-        <label for="meal-type">Tipo:</label>
-        <select id="meal-type" name="meal-type">
-            <option value="desayuno">Desayuno</option>
-            <option value="almuerzo">Almuerzo</option>
-            <option value="comida">Comida</option>
-            <option value="cena">Cena</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="dish-name">Nombre del plato:</label>
-        <input type="text" id="dish-name" name="dish-name" placeholder="Ingresa el nombre">
-    </div>
-    <div class="form-group">
-        <label for="ingredients">Ingredientes:</label>
-        <input type="text" id="ingredients" name="ingredients" placeholder="Ingresa los ingredientes">
-    </div>
-    <div class="form-group">
-        <label for="description">Descripción:</label>
-        <textarea id="description" name="description" placeholder="Ingresa la descripción de la receta"></textarea>
-    </div>
-    <button type="submit">Publicar</button>
-</section>
+        <div class="content-container">
+            <h2 class="form-title">Crear Nueva Receta</h2>
+            <section class="recipe-form">
+                <div class="form-group">
+                    <label for="meal-type">Tipo de comida:</label>
+                    <select id="meal-type" name="meal-type">
+                        <option value="desayuno">Desayuno</option>
+                        <option value="almuerzo">Almuerzo</option>
+                        <option value="comida">Comida</option>
+                        <option value="cena">Cena</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dish-name">Nombre del plato:</label>
+                    <input type="text" id="dish-name" name="dish-name" placeholder="Ejemplo: Tacos al pastor">
+                </div>
+
+                <div class="form-group">
+                    <label for="ingredients">Ingredientes:</label>
+                    <textarea id="ingredients" name="ingredients" rows="5" placeholder="Lista los ingredientes necesarios para tu receta&#10;Ejemplo:&#10;- 500g de carne de cerdo&#10;- 1 piña mediana&#10;- 3 chiles guajillo"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Preparación:</label>
+                    <textarea id="description" name="description" rows="8" placeholder="Describe el paso a paso de la preparación de tu receta"></textarea>
+                </div>
+
+                <button type="submit" class="btn-publicar">Publicar Receta</button>
+            </section>
+        </div>
     </main>
+
 </body>
-</html> 
+</html>
