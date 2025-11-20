@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedRecetas Frontend</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin: 20px 0;
+    }
+    button {
+      padding: 15px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    button:active {
+      transform: scale(0.98);
+    }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      min-height: 100px;
+    }
+    .success {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    .error {
+      color: #f44336;
+      font-weight: bold;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 3px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍳 RedRecetas - Demo</h1>
+
+  <div class="button-container">
+    <button onclick="crearUsuario()">👤 Crear Usuario</button>
+    <button onclick="crearReceta()">📝 Crear Receta</button>
+    <button onclick="valorarReceta()">⭐ Valorar Receta</button>
+    <button onclick="crearBlog()">📰 Crear Blog</button>
+    <button onclick="comentarBlog()">💬 Comentar Blog</button>
+    <button onclick="obtenerRecetas()">📋 Ver Recetas</button>
+    <button onclick="obtenerUsuarios()">👥 Ver Usuarios</button>
+    <button onclick="obtenerBlogs()">📚 Ver Blogs</button>
+  </div>
+
+  <div id="output">
+    <p>Haz clic en un botón para interactuar con la API...</p>
+  </div>
+
+  <script>
+    const API_URL = "http://localhost:3000/api";
+    const output = document.getElementById('output');
+
+    function mostrarResultado(titulo, data, esError = false) {
+      output.innerHTML = `
+        <div class="${esError ? 'error' : 'success'}">${titulo}</div>
+        <pre>${JSON.stringify(data, null, 2)}</pre>
+      `;
+    }
+
+    // Crear usuario
+    async function crearUsuario() {
+      try {
+        const res = await fetch(`${API_URL}/usuarios`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nombreUsuario: "@nuevoUsuario" + Date.now(),
+            correoElectronico: `usuario${Date.now()}@example.com`,
+            contrasena: "123456",
+            imagenPerfil: {
+              nombreArchivo: "perfil_nuevo.jpg",
+              tipo: "image/jpeg",
+              almacenadoEn: "uploads/perfiles/"
+            }
+          })
+        });
+        const data = await res.json();
+        mostrarResultado("✅ Usuario creado:", data);
+      } catch (err) {
+        mostrarResultado("❌ Error al crear usuario:", { error: err.message }, true);
+      }
+    }
+
+    // Crear receta
+    async function crearReceta() {
+      try {
+        const res = await fetch(`${API_URL}/recetas`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            usuario: "@chefLuis",
+            titulo: "Receta Nueva " + Date.now(),
+            tipo: "Cena",
+            ingredientes: ["Pasta", "Tomate", "Queso"],
+            descripcion: "Ideal para gamers",
+            imagen: {
+              nombreArchivo: "pasta_energetica.jpg",
+              tipo: "image/jpeg",
+              almacenadoEn: "uploads/recetas/"
+            }
+          })
+        });
+        const data = await res.json();
+        mostrarResultado("✅ Receta creada:", data);
+      } catch (err) {
+        mostrarResultado("❌ Error al crear receta:", { error: err.message }, true);
+      }
+    }
+
+    // Valorar receta
+    async function valorarReceta() {
+      try {
+        const res = await fetch(`${API_URL}/valoraciones`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            recetaTitulo: "Pasta energética",
+            usuario: "@gamer",
+            estrellas: 5,
+            comentario: "Perfecta para sesiones largas"
+          })
+        });
+        const data = await res.json();
+        mostrarResultado("✅ Valoración creada:", data);
+      } catch (err) {
+        mostrarResultado("❌ Error al valorar receta:", { error: err.message }, true);
+      }
+    }
+
+    // Crear blog
+    async function crearBlog() {
+      try {
+        const res = await fetch(`${API_URL}/blogs`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            autor: "@chefLuis",
+            titulo: "Nuevo Consejo " + Date.now(),
+            contenido: "Frutos secos, batidos, y más..."
+          })
+        });
+        const data = await res.json();
+        mostrarResultado("✅ Blog creado:", data);
+      } catch (err) {
+        mostrarResultado("❌ Error al crear blog:", { error: err.message }, true);
+      }
+    }
+
+    // Comentar blog
+    async function comentarBlog() {
+      try {
+        const res = await fetch(`${API_URL}/comentariosBlog`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            blogTitulo: "Snacks para mantener energía",
+            usuario: "@gamer",
+            texto: "Muy útil para mis streams"
+          })
+        });
+        const data = await res.json();
+        mostrarResultado("✅ Comentario creado:", data);
+      } catch (err) {
+        mostrarResultado("❌ Error al comentar blog:", { error: err.message }, true);
+      }
+    }
+
+    // Obtener recetas
+    async function obtenerRecetas() {
+      try {
+        const res = await fetch(`${API_URL}/recetas`);
+        const data = await res.json();
+        mostrarResultado("📋 Recetas encontradas:", data);
+      } catch (err) {
+        mostrarResultado("❌ Error al obtener recetas:", { error: err.message }, true);
+      }
+    }
+
+    // Obtener usuarios
+    async function obtenerUsuarios() {
+      try {
+        const res = await fetch(`${API_URL}/usuarios`);
+        const data = await res.json();
+        mostrarResultado("👥 Usuarios encontrados:", data);
+      } catch (err) {
+        mostrarResultado("❌ Error al obtener usuarios:", { error: err.message }, true);
+      }
+    }
+
+    // Obtener blogs
+    async function obtenerBlogs() {
+      try {
+        const res = await fetch(`${API_URL}/blogs`);
+        const data = await res.json();
+        mostrarResultado("📚 Blogs encontrados:", data);
+      } catch (err) {
+        mostrarResultado("❌ Error al obtener blogs:", { error: err.message }, true);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -28,8 +28,16 @@
         </div>
     </header>
 
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
 <!--Barra de navegación estandarizada-->
     <nav>
+        <!-- Opciones centradas -->
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="Recetas.html">Recetas</a></li>
@@ -37,42 +45,80 @@
             <li><a href="tusrecetas.html">Tus recetas</a></li>
             <li><a href="login.html" class="login">Iniciar sesión</a></li>
         </ul>
+        
+        <!-- Botón de iniciar sesión a la izquierda (solo desktop) -->
+        <a href="login.html" class="login">Iniciar sesión</a>
     </nav>
 
 <!--Contenido principal-->
     <main>
         <div class="content-container">
-            <h2 class="form-title">Crear Nueva Receta</h2>
+            <div class="form-header">
+                <h2 class="form-title" >✍️ Crear Nueva Receta</h2>
+                <p class="form-description"><center>Comparte tu receta favorita con la comunidad de La Cabaña</center></p>
+            </div>
+            
             <section class="recipe-form">
-                <div class="form-group">
-                    <label for="meal-type">Tipo de comida:</label>
-                    <select id="meal-type" name="meal-type">
-                        <option value="desayuno">Desayuno</option>
-                        <option value="almuerzo">Almuerzo</option>
-                        <option value="comida">Comida</option>
-                        <option value="cena">Cena</option>
-                    </select>
-                </div>
+                <form id="recipeForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="meal-type">🍽️ Tipo de comida:</label>
+                            <select id="meal-type" name="meal-type" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="desayuno">Desayuno</option>
+                                <option value="almuerzo">Almuerzo</option>
+                                <option value="cena">Cena</option>
+                                <option value="postre">Postre</option>
+                            </select>
+                        </div>
 
-                <div class="form-group">
-                    <label for="dish-name">Nombre del plato:</label>
-                    <input type="text" id="dish-name" name="dish-name" placeholder="Ejemplo: Tacos al pastor">
-                </div>
+                        <div class="form-group">
+                            <label for="dish-name">📝 Nombre del plato:</label>
+                            <input type="text" id="dish-name" name="dish-name" placeholder="Ejemplo: Tacos al pastor" required>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="ingredients">Ingredientes:</label>
-                    <textarea id="ingredients" name="ingredients" rows="5" placeholder="Lista los ingredientes necesarios para tu receta&#10;Ejemplo:&#10;- 500g de carne de cerdo&#10;- 1 piña mediana&#10;- 3 chiles guajillo"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="recipe-image">📸 Imagen de la receta (opcional):</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="recipe-image" name="recipe-image" accept="image/*">
+                            <label for="recipe-image" class="file-input-label">
+                                <span class="file-input-icon">📁</span>
+                                <span class="file-input-text">Seleccionar imagen</span>
+                            </label>
+                            <div id="image-preview" class="image-preview"></div>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="description">Preparación:</label>
-                    <textarea id="description" name="description" rows="8" placeholder="Describe el paso a paso de la preparación de tu receta"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="ingredients">🥗 Ingredientes:</label>
+                        <textarea id="ingredients" name="ingredients" rows="6" placeholder="Lista los ingredientes necesarios para tu receta&#10;Ejemplo:&#10;- 500g de carne de cerdo&#10;- 1 piña mediana&#10;- 3 chiles guajillo&#10;- Sal y pimienta al gusto" required></textarea>
+                    </div>
 
-                <button id="publicar_receta" type="submit" class="btn-publicar">Publicar Receta</button>
+                    <div class="form-group">
+                        <label for="description">👨‍🍳 Preparación:</label>
+                        <textarea id="description" name="description" rows="10" placeholder="Describe el paso a paso de la preparación de tu receta&#10;Ejemplo:&#10;1. Corta la carne en trozos pequeños&#10;2. Marina la carne con los chiles&#10;3. Deja reposar por 2 horas&#10;..." required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="window.location.href='Recetas.html'">
+                            ← Cancelar
+                        </button>
+                        <button id="publicar_receta" type="submit" class="btn-publicar">
+                            ✨ Publicar Receta
+                        </button>
+                    </div>
+                </form>
             </section>
         </div>
     </main>
-
+    <!-- Script del menú hamburguesa -->
+    <script src="js/menu-toggle.js"></script>
+    <!-- Sistema de Autenticación -->
+    <script src="js/auth-session.js"></script>
+    <!-- Sistema de Formulario de Recetas -->
+    <script src="js/recipe-form.js"></script>
+    
+    <script src="js/crearReceta.js"></script>
 </body>
 </html>

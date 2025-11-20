@@ -26,15 +26,26 @@
       </div>
     </div>
   </header>
+  <!-- BOTÓN HAMBURGUESA -->
+    <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
 
   <!--Barra de navegación estandarizada-->
   <nav>
+    <!-- Botón de iniciar sesión a la izquierda -->
+    <a href="login.html" class="login">Iniciar sesión</a>
+    
+    <!-- Opciones centradas -->
     <ul>
       <li><a href="index.html">Inicio</a></li>
       <li><a href="Recetas.html">Recetas</a></li>
-      <li><a href="login.html" class="login">Iniciar sesión</a></li>
     </ul>
   </nav>
+  <!--Barra de navegación estandarizada-->
 
   <!--Contenido principal-->
   <main>
@@ -95,7 +106,11 @@
       document.getElementById('userInput').focus();
     }
   </script>
+  <!-- Script del menú hamburguesa -->
+    <script src="js/menu-toggle.js"></script>
   <script src="js/ia.js"></script>
+  <!-- Sistema de Autenticación -->
+    <script src="js/auth-session.js"></script>
 </body>
 
 </html>

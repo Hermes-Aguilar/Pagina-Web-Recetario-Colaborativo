@@ -27,9 +27,19 @@
             </div>
         </div>
     </header>
-
+<!-- BOTÓN HAMBURGUESA -->
+    <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
 <!--Barra de navegación estandarizada-->
     <nav>
+        <!-- Botón de iniciar sesión a la izquierda -->
+        <a href="login.html" class="login">Iniciar sesión</a>
+        
+        <!-- Opciones centradas -->
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="Desayunos.html">Desayunos</a></li>
@@ -37,12 +47,11 @@
             <li><a href="Cenas.html">Cenas</a></li>
             <li><a href="Postres.html">Postres</a></li>
             <li><a href="ia.html">Receta con IA</a></li>
-            <li>
+            <li><a href="CrearReceta.html">Crear receta</a></li>
                 <a href="tienda.html" target="_blank" class="store-link">
                     <img src="img/animacion2.gif" alt="Tienda" class="store-icon">
                 </a>
             </li>
-            <li><a href="login.html" class="login">Iniciar sesión</a></li>
         </ul>
     </nav>
 
@@ -55,6 +64,9 @@
             </div>
         </section>
     </main>
-
+    <!-- Script del menú hamburguesa -->
+    <script src="js/menu-toggle.js"></script>
+    <!-- Sistema de Autenticación -->
+    <script src="js/auth-session.js"></script>
 </body>
 </html>

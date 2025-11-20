@@ -27,14 +27,24 @@
             </div>
         </div>
     </header>
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
 <!--Barra de navegación estandarizada-->
     <nav>
+        <!-- Opciones centradas -->
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="CrearBlog.html">Crear Consejos</a></li>
-            <li><a href="login.html" class="login">Iniciar sesión</a></li>
+            
         </ul>
+        
+        <!-- Botón de iniciar sesión a la izquierda (solo desktop) -->
+        <a href="login.html" class="login">Iniciar sesión</a>
     </nav>
 
 <!--Contenido principal-->
@@ -46,7 +56,7 @@
 
             <div class="contenido">
                 
-                <div class="tarjeta">
+                <div class="tarjeta" data-blog-id="1">
                     <img src="img/pri.jpg" alt="Plato saludable">
                     <h3>Consejo de alimentación</h3>
                     <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
@@ -55,93 +65,183 @@
                         <p>nombreuser</p>
                         <p>30/oct/2025</p>
                     </div>
-                </div>
-
-                <div class="tarjeta">
-                    <img src="img/pri.jpg" alt="Plato saludable">
-                    <h3>Consejo de alimentación</h3>
-                    <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
-                    <div class="descrip">
-                        <img src="img/user.png" alt="usuario">
-                        <p>nombreuser</p>
-                        <p>30/oct/2025</p>
+                    
+                    <!-- Sección de comentarios -->
+                    <div class="comments-section">
+                        <div class="comments-header">
+                            <h4>💬 Comentarios (<span class="comments-count">0</span>)</h4>
+                            <button class="toggle-comments" onclick="toggleComments(1)">
+                                Ver comentarios ▼
+                            </button>
+                        </div>
+                        
+                        <div class="comments-container" id="comments-1" style="display: none;">
+                            <!-- Lista de comentarios -->
+                            <div class="comments-list"></div>
+                            
+                            <!-- Formulario para agregar comentario -->
+                            <div class="comment-form">
+                                <textarea class="comment-input" placeholder="Escribe tu comentario..." maxlength="500"></textarea>
+                                <div class="comment-actions">
+                                    <span class="char-count">0/500</span>
+                                    <button class="btn-comment" onclick="addComment(1)">
+                                        Comentar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tarjeta">
+                <div class="tarjeta" data-blog-id="2">
                     <img src="img/pri.jpg" alt="Plato saludable">
-                    <h3>Consejo de alimentación</h3>
-                    <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
+                    <h3>Hidratación adecuada</h3>
+                    <p>Bebe al menos 8 vasos de agua al día para mantener tu cuerpo hidratado y funcionando correctamente.</p>
                     <div class="descrip">
                         <img src="img/user.png" alt="usuario">
-                        <p>nombreuser</p>
-                        <p>30/oct/2025</p>
+                        <p>MaríaS</p>
+                        <p>28/oct/2025</p>
+                    </div>
+                    
+                    <!-- Sección de comentarios -->
+                    <div class="comments-section">
+                        <div class="comments-header">
+                            <h4>💬 Comentarios (<span class="comments-count">0</span>)</h4>
+                            <button class="toggle-comments" onclick="toggleComments(2)">
+                                Ver comentarios ▼
+                            </button>
+                        </div>
+                        
+                        <div class="comments-container" id="comments-2" style="display: none;">
+                            <div class="comments-list"></div>
+                            <div class="comment-form">
+                                <textarea class="comment-input" placeholder="Escribe tu comentario..." maxlength="500"></textarea>
+                                <div class="comment-actions">
+                                    <span class="char-count">0/500</span>
+                                    <button class="btn-comment" onclick="addComment(2)">
+                                        Comentar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tarjeta">
+                <div class="tarjeta" data-blog-id="3">
                     <img src="img/pri.jpg" alt="Plato saludable">
-                    <h3>Consejo de alimentación</h3>
-                    <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
+                    <h3>Ejercicio regular</h3>
+                    <p>Realiza al menos 30 minutos de actividad física moderada 5 días a la semana para mantener tu salud.</p>
                     <div class="descrip">
                         <img src="img/user.png" alt="usuario">
-                        <p>nombreuser</p>
-                        <p>30/oct/2025</p>
+                        <p>CarlosR</p>
+                        <p>25/oct/2025</p>
+                    </div>
+                    
+                    <!-- Sección de comentarios -->
+                    <div class="comments-section">
+                        <div class="comments-header">
+                            <h4>💬 Comentarios (<span class="comments-count">0</span>)</h4>
+                            <button class="toggle-comments" onclick="toggleComments(3)">
+                                Ver comentarios ▼
+                            </button>
+                        </div>
+                        
+                        <div class="comments-container" id="comments-3" style="display: none;">
+                            <div class="comments-list"></div>
+                            <div class="comment-form">
+                                <textarea class="comment-input" placeholder="Escribe tu comentario..." maxlength="500"></textarea>
+                                <div class="comment-actions">
+                                    <span class="char-count">0/500</span>
+                                    <button class="btn-comment" onclick="addComment(3)">
+                                        Comentar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tarjeta">
+                <div class="tarjeta" data-blog-id="4">
                     <img src="img/pri.jpg" alt="Plato saludable">
-                    <h3>Consejo de alimentación</h3>
-                    <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
+                    <h3>Descanso adecuado</h3>
+                    <p>Duerme entre 7-8 horas diarias para que tu cuerpo se recupere y mantengas tu energía durante el día.</p>
                     <div class="descrip">
                         <img src="img/user.png" alt="usuario">
-                        <p>nombreuser</p>
-                        <p>30/oct/2025</p>
+                        <p>AnaL</p>
+                        <p>22/oct/2025</p>
+                    </div>
+                    
+                    <div class="comments-section">
+                        <div class="comments-header">
+                            <h4>💬 Comentarios (<span class="comments-count">0</span>)</h4>
+                            <button class="toggle-comments" onclick="toggleComments(4)">Ver comentarios ▼</button>
+                        </div>
+                        <div class="comments-container" id="comments-4" style="display: none;">
+                            <div class="comments-list"></div>
+                            <div class="comment-form">
+                                <textarea class="comment-input" placeholder="Escribe tu comentario..." maxlength="500"></textarea>
+                                <div class="comment-actions">
+                                    <span class="char-count">0/500</span>
+                                    <button class="btn-comment" onclick="addComment(4)">Comentar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tarjeta">
+                <div class="tarjeta" data-blog-id="5">
                     <img src="img/pri.jpg" alt="Plato saludable">
-                    <h3>Consejo de alimentación</h3>
-                    <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
+                    <h3>Alimentación balanceada</h3>
+                    <p>Combina proteínas, carbohidratos y grasas saludables en cada comida para una nutrición óptima.</p>
                     <div class="descrip">
                         <img src="img/user.png" alt="usuario">
-                        <p>nombreuser</p>
-                        <p>30/oct/2025</p>
+                        <p>PedroM</p>
+                        <p>20/oct/2025</p>
+                    </div>
+                    
+                    <div class="comments-section">
+                        <div class="comments-header">
+                            <h4>💬 Comentarios (<span class="comments-count">0</span>)</h4>
+                            <button class="toggle-comments" onclick="toggleComments(5)">Ver comentarios ▼</button>
+                        </div>
+                        <div class="comments-container" id="comments-5" style="display: none;">
+                            <div class="comments-list"></div>
+                            <div class="comment-form">
+                                <textarea class="comment-input" placeholder="Escribe tu comentario..." maxlength="500"></textarea>
+                                <div class="comment-actions">
+                                    <span class="char-count">0/500</span>
+                                    <button class="btn-comment" onclick="addComment(5)">Comentar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tarjeta">
+                <div class="tarjeta" data-blog-id="6">
                     <img src="img/pri.jpg" alt="Plato saludable">
-                    <h3>Consejo de alimentación</h3>
-                    <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
+                    <h3>Evita alimentos procesados</h3>
+                    <p>Reduce el consumo de alimentos ultraprocesados y opta por opciones naturales y frescas.</p>
                     <div class="descrip">
                         <img src="img/user.png" alt="usuario">
-                        <p>nombreuser</p>
-                        <p>30/oct/2025</p>
+                        <p>LucíaG</p>
+                        <p>18/oct/2025</p>
                     </div>
-                </div>
-
-                <div class="tarjeta">
-                    <img src="img/pri.jpg" alt="Plato saludable">
-                    <h3>Consejo de alimentación</h3>
-                    <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
-                    <div class="descrip">
-                        <img src="img/user.png" alt="usuario">
-                        <p>nombreuser</p>
-                        <p>30/oct/2025</p>
-                    </div>
-                </div>
-
-                <div class="tarjeta">
-                    <img src="img/pri.jpg" alt="Plato saludable">
-                    <h3>Consejo de alimentación</h3>
-                    <p>Incluye frutas y verduras frescas en cada comida para mejorar tu energía.</p>
-                    <div class="descrip">
-                        <img src="img/user.png" alt="usuario">
-                        <p>nombreuser</p>
-                        <p>30/oct/2025</p>
+                    
+                    <div class="comments-section">
+                        <div class="comments-header">
+                            <h4>💬 Comentarios (<span class="comments-count">0</span>)</h4>
+                            <button class="toggle-comments" onclick="toggleComments(6)">Ver comentarios ▼</button>
+                        </div>
+                        <div class="comments-container" id="comments-6" style="display: none;">
+                            <div class="comments-list"></div>
+                            <div class="comment-form">
+                                <textarea class="comment-input" placeholder="Escribe tu comentario..." maxlength="500"></textarea>
+                                <div class="comment-actions">
+                                    <span class="char-count">0/500</span>
+                                    <button class="btn-comment" onclick="addComment(6)">Comentar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -150,4 +250,10 @@
     </main>
 
 </body>
+<!-- Script del menú hamburguesa -->
+    <script src="js/menu-toggle.js"></script>
+    <!-- Sistema de Autenticación -->
+    <script src="js/auth-session.js"></script>
+    <!-- Sistema de Comentarios -->
+    <script src="js/comments-system.js"></script>
 </html>

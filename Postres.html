@@ -28,14 +28,33 @@
             </div>
         </div>
     </header>
-
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
 <!--Barra de navegación estandarizada-->
     <nav>
+        <!-- Botón de iniciar sesión a la izquierda -->
+        <a href="login.html" class="login">Iniciar sesión</a>
+        
+        <!-- Opciones centradas -->
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="Recetas.html">Recetas</a></li>
-            <li><a href="login.html" class="login">Iniciar sesión</a></li>
         </ul>
+        
+        <!-- Barra de búsqueda a la derecha -->
+        <div class="search-box">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input type="text" id="search-input" placeholder="Buscar postres...">
+            <button type="button" id="clear-search" aria-label="Limpiar búsqueda">×</button>
+        </div>
     </nav>
 
 <!--Contenido principal-->
@@ -142,8 +161,13 @@
             </div>
         </section>
     </main>
-
+    <!-- Script del menú hamburguesa -->
+    <script src="js/menu-toggle.js"></script>
     <!-- Sistema de Calificación -->
     <script src="js/Rating_system.js"></script>
+    <!-- Sistema de Búsqueda -->
+    <script src="js/search-system.js"></script>
+    <!-- Sistema de Autenticación -->
+    <script src="js/auth-session.js"></script>
 </body>
 </html>
